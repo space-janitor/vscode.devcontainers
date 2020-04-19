@@ -1,9 +1,9 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
 // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/typescript-node-12
 {
-	"name": "My development worksplace",
+	"name": "Space Janitor development workspace",
     "dockerComposeFile": "./docker-compose.yml",
-	"service": "development",
+	"service": "SpaceJanitor",
 	// Use 'settings' to set *default* container specific settings.json values on container create. 
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
 	"settings": {
