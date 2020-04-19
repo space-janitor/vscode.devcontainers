@@ -2,6 +2,13 @@
 Visual Studio Code development containers
 
 # Docker image creation
+
 ``` bash
-docker build -t docker.pkg.github.com/betancourtca/vscode.devcontainers/skunkworks:0.0.1 .
+docker build -t docker.pkg.github.com/betancourtca/vscode.devcontainers/skunkworks:0.0.2 .
+```
+
+# publish
+
+``` bash
+docker push docker.pkg.github.com/betancourtca/vscode.devcontainers/skunkworks:0.0.2
 ```
