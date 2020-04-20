@@ -1,0 +1,19 @@
+version: '3'
+services:
+  SpaceJanitor:
+    container_name: SpaceJanitor
+    image: docker.pkg.github.com/space-janitor/vscode.devcontainers/skunkworks:0.0.2
+    volumes:
+    - workspace:/workspace
+    - ~/downloads:/root/downloads
+    - ~/.aws:/root/.aws
+    - ~/.kube:/root/.kube
+    - ~/.npmrc:/root/.npmrc
+    - /var/run/docker.sock:/var/run/docker.sock
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
+    command: /bin/sh -c "while sleep 1000; do :; done"
+volumes: 
+  workspace:

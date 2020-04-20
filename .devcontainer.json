@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/typescript-node-12
+{
+	"name": "Space Janitor development workspace",
+    "dockerComposeFile": "./docker-compose.yml",
+	"service": "SpaceJanitor",
+	// Use 'settings' to set *default* container specific settings.json values on container create. 
+	// You can edit these settings after create using File > Preferences > Settings > Remote.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+	"extensions": [
+		"christian-kohler.path-intellisense",
+        "DavidAnson.vscode-markdownlint",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "fvclaus.sort-json-array",
+        "humao.rest-client",
+        "joshuapoehls.json-escaper",
+        "mechatroner.rainbow-csv",
+        "mhutchie.git-graph",
+        "mitchdenny.ecdc",
+        "ms-vscode.csharp",
+        "ms-vscode.node-debug",
+        "ms-vscode.node-debug2",
+        "ms-vscode.references-view",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "quicktype.quicktype",
+        "richie5um2.vscode-sort-json",
+        "richie5um2.vscode-statusbar-json-path",
+        "YoshinoriN.current-file-path"
+	]
+}
