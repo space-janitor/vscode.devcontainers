@@ -35,7 +35,12 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends yarn \
     #
     # Install tslint and typescript globally
-    && npm install -g tslint eslint typescript \
+    && npm install -g eslint typescript \
+    # 
+    # isntalling java
+    # && echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list \
+    # && apt update \
+    # && apt install openjdk-11-jdk \
     #
     # [Optional] Update a non-root user to UID/GID if needed.
     && if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
@@ -49,14 +54,17 @@ RUN apt-get update \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) stable" \
     && apt-get update \
     && apt-get install -y docker-ce-cli \
+    # Install aws-cli
+    && apt-get install -y python-pip \
+    && pip install awscli \
     #
     # Install Docker Compose
     && curl -sSL "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose \
     # [Optional] Add add sudo support for non-root user
-    && apt-get install -y sudo \
-    && echo node ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    # && apt-get install -y sudo \
+    # && echo node ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    # && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
     # Clean up
     && apt-get autoremove -y \
