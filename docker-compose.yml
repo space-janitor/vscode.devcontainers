@@ -2,7 +2,7 @@ version: '3'
 services:
   SpaceJanitor:
     container_name: SpaceJanitor
-    image: docker.pkg.github.com/space-janitor/vscode.devcontainers/development:skunkwork
+    image: docker.pkg.github.com/space-janitor/vscode.devcontainers/development:skunkworks
     volumes:
     - workspace:/workspace
     - ~/downloads:/root/downloads

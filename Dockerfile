@@ -37,7 +37,7 @@ RUN apt-get update \
     # Install tslint and typescript globally
     && npm install -g eslint typescript \
     # 
-    # isntalling java
+    # installing java
     # && echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list \
     # && apt update \
     # && apt install openjdk-11-jdk \

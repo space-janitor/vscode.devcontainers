@@ -5,13 +5,13 @@ Visual Studio Code development containers
 ## Docker image creation
 
 ``` bash
-docker build -t docker.pkg.github.com/space-janitor/vscode.devcontainers/skunkworks:0.0.2 .
+docker build -t docker.pkg.github.com/space-janitor/vscode.devcontainers/development:skunkworks .
 ```
 
 ## publish
 
 ``` bash
-docker push docker.pkg.github.com/space-janitor/vscode.devcontainers/skunkworks:0.0.2
+docker push docker.pkg.github.com/space-janitor/vscode.devcontainers/development:skunkworks
 ```
 
 ## Startup as a standalone dev container
