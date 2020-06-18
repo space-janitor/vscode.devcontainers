@@ -55,8 +55,8 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y docker-ce-cli \
     # Install aws-cli
-    && apt-get install -y python-pip \
-    && pip install awscli \
+    # && apt-get install -y python-pip \
+    # && pip install awscli \
     #
     # Install Docker Compose
     && curl -sSL "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \

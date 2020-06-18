@@ -10,7 +10,7 @@ services:
     - ~/.kube:/root/.kube
     - ~/.npmrc:/root/.npmrc
     - ~/.vscode:/root/.vscode
-    - ~/.docker:/root/.docker
+    # - ~/.docker:/root/.docker
     - /var/run/docker.sock:/var/run/docker.sock
     cap_add:
     - SYS_PTRACE
