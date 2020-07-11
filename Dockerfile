@@ -14,8 +14,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 # See https://aka.ms/vscode-remote/containers/non-root-user for details.
 ARG USERNAME=node
 ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-
+ARG USER_GID=$USER_UID 
+    #
+    # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
+RUN apt-get update \
+    && apt-get install -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 # Configure apt and install packages
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \ 

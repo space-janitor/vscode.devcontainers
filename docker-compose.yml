@@ -6,16 +6,16 @@ services:
     volumes:
     - workspace:/workspace
     - ~/downloads:/root/downloads
+    - ~/.ssh:/root/.ssh
     - ~/.aws:/root/.aws
     - ~/.kube:/root/.kube
     - ~/.npmrc:/root/.npmrc
     - ~/.vscode:/root/.vscode
-    # - ~/.docker:/root/.docker
     - /var/run/docker.sock:/var/run/docker.sock
     cap_add:
     - SYS_PTRACE
     security_opt:
     - seccomp:unconfined
     command: /bin/sh -c "while sleep 1000; do :; done"
-volumes: 
+volumes:
   workspace:
