@@ -1,6 +1,6 @@
 version: '3'
 services:
-  SpaceJanitor:
+  DevContainer:
     container_name: SpaceJanitor
     image: space-janitor:dev
     volumes:
