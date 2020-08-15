@@ -1,10 +1,10 @@
 version: '3'
 services:
-  DevContainer:
+  dev_container:
     container_name: SpaceJanitor
-    image: space-janitor:dev
+    build: .
     volumes:
-    - workspace:/workspace
+    - /workspace:/workspace
     - ~/downloads:/root/downloads
     - ~/.ssh:/root/.ssh
     - ~/.aws:/root/.aws
@@ -17,5 +17,3 @@ services:
     security_opt:
     - seccomp:unconfined
     command: /bin/sh -c "while sleep 1000; do :; done"
-volumes:
-  workspace:
