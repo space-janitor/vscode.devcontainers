@@ -8,10 +8,11 @@ services:
     - ~/downloads:/root/downloads
     - ~/.ssh:/root/.ssh
     - ~/.aws:/root/.aws
-    - ~/.kube:/root/.kube
+    # - ~/.kube:/root/.kube
     - ~/.npmrc:/root/.npmrc
     - ~/.vscode:/root/.vscode
     - /var/run/docker.sock:/var/run/docker.sock
+    - ~/.gitconfig:/root/.gitconfig
     cap_add:
     - SYS_PTRACE
     security_opt:
