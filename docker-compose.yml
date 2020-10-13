@@ -12,7 +12,7 @@ services:
     - ~/.npmrc:/root/.npmrc
     - ~/.vscode:/root/.vscode
     - /var/run/docker.sock:/var/run/docker.sock
-    - ~/.gitconfig:/root/.gitconfig
+    # - ~/.gitconfig:/root/.gitconfig
     cap_add:
     - SYS_PTRACE
     security_opt:
