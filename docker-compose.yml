@@ -1,21 +1,34 @@
 version: '3'
 services:
-  SpaceJanitor:
+  dev_container:
     container_name: SpaceJanitor
-    image: docker.pkg.github.com/space-janitor/vscode.devcontainers/development:skunkworks
+    build: .
     volumes:
-    - workspace:/workspace
+    - /workspace:/workspace
     - ~/downloads:/root/downloads
+    - ~/data:/root/data
+    - ~/.ssh:/root/.ssh
     - ~/.aws:/root/.aws
     - ~/.kube:/root/.kube
-    - ~/.npmrc:/root/.npmrc
     - ~/.vscode:/root/.vscode
-    - ~/.docker:/root/.docker
+    - ~/.npmrc:/root/.npmrc
     - /var/run/docker.sock:/var/run/docker.sock
+    # - ~/.gitconfig:/root/.gitconfig
     cap_add:
     - SYS_PTRACE
     security_opt:
     - seccomp:unconfined
     command: /bin/sh -c "while sleep 1000; do :; done"
-volumes: 
-  workspace:
+    depends_on:
+    - db
+  db:
+    image: mysql:8
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    env_file: .env
+    volumes:
+      - mysqldata:/var/lib/mysql 
+volumes:
+  mysqldata:

@@ -2,24 +2,27 @@
 
 Visual Studio Code development containers
 
-## Docker image creation
-
-``` bash
-docker build -t docker.pkg.github.com/space-janitor/vscode.devcontainers/development:skunkworks .
-```
-
-## publish
-
-``` bash
-docker push docker.pkg.github.com/space-janitor/vscode.devcontainers/development:skunkworks
-```
-
-## Startup as a standalone dev container
+## Start dev container
 
 ``` bash
 docker-compose up -d
 ```
 
-## Startup as a vscode remote container
+## MySQL
 
-Goto online [documentation](https://code.visualstudio.com/docs/remote/containers) for more information.
+### Environment file
+
+Use the following template to create environment file
+
+``` environment
+MYSQL_DATABASE=databasename
+MYSQL_ROOT_PASSWORD=password
+```
+
+### local development
+
+For mysql 8.x run the following cmd as a query (Replace `root` and `password` as required based on the values in your `.env` file).
+
+``` bash
+alter user root@'%' identified with mysql_native_password by "password";
+```
