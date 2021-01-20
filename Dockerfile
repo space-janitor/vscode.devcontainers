@@ -90,6 +90,10 @@ RUN apt-get update \
     && brew tap aws/tap \
     && brew install aws-sam-cli \
     && echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /root/.bashrc \
+    ## indalling 
+    && curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb" \
+    && sudo dpkg -i session-manager-plugin.deb \
+    && session-manager-plugin \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
