@@ -1,6 +1,7 @@
 version: '3'
 services:
   dev_container:
+    hostname: 'spacejanitor'
     container_name: SpaceJanitor
     build: .
     volumes:
