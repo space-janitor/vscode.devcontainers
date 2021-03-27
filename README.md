@@ -4,7 +4,7 @@ Visual Studio Code development containers
 
 ## Start dev container
 
-``` bash
+```bash
 docker-compose up -d
 ```
 
@@ -14,15 +14,17 @@ docker-compose up -d
 
 Use the following template to create environment file
 
-``` environment
+```environment
 MYSQL_DATABASE=databasename
 MYSQL_ROOT_PASSWORD=password
+DEVCONTAINER_HOSTNAME=SpaceJanitor
+DEVCONTAINER_HOME=/home/betancourtca
 ```
 
 ### local development
 
 For mysql 8.x run the following cmd as a query (Replace `root` and `password` as required based on the values in your `.env` file).
 
-``` bash
+```bash
 alter user root@'%' identified with mysql_native_password by "password";
 ```
