@@ -25,6 +25,7 @@ services:
     depends_on:
       - db
   db:
+    container_name: ${DEVCONTAINER_HOSTNAME}-db
     image: mysql:8
     expose:
       - "3306"
