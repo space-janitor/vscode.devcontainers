@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-FROM node:14
+FROM node:12
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -17,7 +17,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID 
 ARG DEVCONTAINER_HOME
 COPY ./linuxbrew.sh /root
-
+COPY .npmrc /root
     #
     # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
 RUN apt-get update \
@@ -43,7 +43,7 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends yarn \
     #
     # Install tslint and typescript globally
-    && npm install -g eslint typescript \
+    && npm install -g eslint typescript nodemon dotenv-cli\
     # 
     # installing java
     # && echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list \

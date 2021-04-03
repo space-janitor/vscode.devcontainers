@@ -15,7 +15,6 @@ services:
       - ~/.aws:/root/.aws
       - ~/.kube:/root/.kube
       - ~/.vscode:/root/.vscode
-      - ~/.npmrc:/root/.npmrc
       - /var/run/docker.sock:/var/run/docker.sock
     cap_add:
       - SYS_PTRACE
@@ -26,7 +25,7 @@ services:
       - db
   db:
     container_name: ${DEVCONTAINER_HOSTNAME}-db
-    image: mysql:8
+    image: mysql:8.0.19
     expose:
       - "3306"
     ports:

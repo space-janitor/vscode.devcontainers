@@ -21,6 +21,17 @@ DEVCONTAINER_HOSTNAME=SpaceJanitor
 DEVCONTAINER_HOME=/home/betancourtca
 ```
 
+### .npmrc
+
+Use the following template to create .npmrc
+
+```npm
+strict-ssl=true
+//npm.pkg.github.com/:_authToken=token here
+init.license=MIT
+registry=https://npm.pkg.github.com/space-janitor
+```
+
 ### local development
 
 For mysql 8.x run the following cmd as a query (Replace `root` and `password` as required based on the values in your `.env` file).
