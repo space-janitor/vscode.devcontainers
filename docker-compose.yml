@@ -9,12 +9,11 @@ services:
         DEVCONTAINER_HOME: $DEVCONTAINER_HOME
     volumes:
       - /workspace:/workspace
-      - ~/downloads:/root/downloads
-      - ~/data:/root/data
       - ~/.ssh:/root/.ssh
       - ~/.aws:/root/.aws
       - ~/.kube:/root/.kube
       - ~/.vscode:/root/.vscode
+      - ~/.npmrc:/root/.npmrc
       - /var/run/docker.sock:/var/run/docker.sock
     cap_add:
       - SYS_PTRACE

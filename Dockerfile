@@ -17,7 +17,6 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID 
 ARG DEVCONTAINER_HOME
 COPY ./linuxbrew.sh /root
-COPY .npmrc /root
     #
     # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
 RUN apt-get update \

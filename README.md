@@ -1,16 +1,8 @@
 # vscode.devcontainers
 
-Visual Studio Code development containers
+Visual Studio Code development container.
 
-## Start dev container
-
-```bash
-docker-compose up -d
-```
-
-## MySQL
-
-### Environment file
+## Environment file
 
 Use the following template to create environment file
 
@@ -21,9 +13,17 @@ DEVCONTAINER_HOSTNAME=SpaceJanitor
 DEVCONTAINER_HOME=/home/betancourtca
 ```
 
-### .npmrc
+## Expected home files & directories
 
-Use the following template to create .npmrc
+This files will be mapped by docker-compose.yml
+
+### ~/.aws
+
+AWS configuration folder
+
+### ~/.npmrc
+
+Sample template to create .npmrc in your home directory
 
 ```npm
 strict-ssl=true
@@ -32,7 +32,15 @@ init.license=MIT
 registry=https://npm.pkg.github.com/space-janitor
 ```
 
-### local development
+## Start dev container
+
+```bash
+docker-compose up -d
+```
+
+## Troubleshooting
+
+You might get a password error due to not accessing database through localhost.
 
 For mysql 8.x run the following cmd as a query (Replace `root` and `password` as required based on the values in your `.env` file).
 
