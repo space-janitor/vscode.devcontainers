@@ -1,34 +1,36 @@
-version: '3'
+version: "3"
 services:
   dev_container:
-    container_name: SpaceJanitor
-    build: .
+    hostname: $DEVCONTAINER_HOSTNAME
+    container_name: $DEVCONTAINER_HOSTNAME
+    build:
+      context: .
+      args:
+        DEVCONTAINER_HOME: $DEVCONTAINER_HOME
     volumes:
-    - /workspace:/workspace
-    - ~/downloads:/root/downloads
-    - ~/data:/root/data
-    - ~/.ssh:/root/.ssh
-    - ~/.aws:/root/.aws
-    - ~/.kube:/root/.kube
-    - ~/.vscode:/root/.vscode
-    - ~/.npmrc:/root/.npmrc
-    - /var/run/docker.sock:/var/run/docker.sock
-    # - ~/.gitconfig:/root/.gitconfig
+      - /workspace:/workspace
+      - ~/.ssh:/root/.ssh
+      - ~/.aws:/root/.aws
+      - ~/.kube:/root/.kube
+      - ~/.vscode:/root/.vscode
+      - ~/.npmrc:/root/.npmrc
+      - /var/run/docker.sock:/var/run/docker.sock
     cap_add:
-    - SYS_PTRACE
+      - SYS_PTRACE
     security_opt:
-    - seccomp:unconfined
+      - seccomp:unconfined
     command: /bin/sh -c "while sleep 1000; do :; done"
     depends_on:
-    - db
+      - db
   db:
-    image: mysql:8
+    container_name: ${DEVCONTAINER_HOSTNAME}-db
+    image: mysql:8.0.19
     expose:
       - "3306"
     ports:
       - "3306:3306"
     env_file: .env
     volumes:
-      - mysqldata:/var/lib/mysql 
+      - mysqldata:/var/lib/mysql
 volumes:
   mysqldata:

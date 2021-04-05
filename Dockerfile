@@ -15,9 +15,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 ARG USERNAME=node
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID 
-
+ARG DEVCONTAINER_HOME
 COPY ./linuxbrew.sh /root
-
     #
     # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
 RUN apt-get update \
@@ -43,7 +42,7 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends yarn \
     #
     # Install tslint and typescript globally
-    && npm install -g eslint typescript \
+    && npm install -g eslint typescript nodemon dotenv-cli\
     # 
     # installing java
     # && echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list \
@@ -90,9 +89,14 @@ RUN apt-get update \
     && brew tap aws/tap \
     && brew install aws-sam-cli \
     && echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /root/.bashrc \
+    ## indalling 
+    && curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb" \
+    && sudo dpkg -i session-manager-plugin.deb \
+    && session-manager-plugin \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*    
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -s /root $DEVCONTAINER_HOME  
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
